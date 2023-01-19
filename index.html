@@ -65,17 +65,46 @@
 
             function preload(){
 
-                this.load.image('bg',"assets/background_test.png")
-                this.load.spritesheet('player','asset/hero.png')
+                this.load.image('bg',"assets/background_test.png");
+                //this.load.spritesheet('player','asset/hero.png');
 
 
-                //this.load.tilemapTiledJSON('temple','assets/temple.json')
+                this.load.tilemapTiledJSON('temple','tiled/premierNiveau.json');
+                this.load.image('Tilset_temple','assets/Tileset_vitre.png');
+                this.load.image('sol','assets/plateforme_grotte.png');
+                this.load.image('mur_bord','assets/mur_bord.png');
 
             }
 
             function create(){
 
                 this.add.image(800,800,'bg')
+
+                let map = this.make.tilemap({key : 'temple'});
+                let tile1 = map.addTilesetImage('Tileset_vitre', 'Tilset_temple');
+                let tile2 = map.addTilesetImage('plateforme_grotte','sol');
+                let tile3 = map.addTilesetImage('mur_bord','mur_bord');
+
+                const fondTemple = map.createStaticLayer(
+                    "fond",
+                    tile1
+                );
+
+                const solGrotte = map.createStaticLayer(
+                    "fond_grotte",
+                    tile2
+                );
+
+                const solTemple = map.createStaticLayer(
+                    "sol",
+                    tile1
+                );
+
+                const mur = map.createStaticLayer(
+                    "mur",
+                    tile3
+                );
+
 
                 
 
