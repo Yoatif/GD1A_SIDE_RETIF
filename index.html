@@ -67,8 +67,7 @@
 
                 this.load.image('bg',"assets/background_test.png");
                 this.load.image('grotte', 'assets/grotte.png')
-                //this.load.spritesheet('player','asset/hero.png');
-
+                this.load.spritesheet('player','asset/hero.png',{frameWidth: 512, frameHeight: 1024});
 
                 this.load.tilemapTiledJSON('temple','tiled/premierNiveau.json');
                 this.load.image('tileset', 'assets/Tileset.png')
@@ -87,20 +86,21 @@
                     "tileset"
                 );
 
-
-
-                const fond = map.createLayer(
+                const fond = map.createStaticLayer(
                     "fond",
                     tileset
                 )
-                const sol = map.createLayer(
+                const sol = map.createStaticLayer(
                     "sol",
                     tileset
                 )
-                const deco = map.createLayer(
+                const deco = map.createStaticLayer(
                     "deco",
                     tileset
                 )
+                player = this.physics.add.sprite(100,450,'player');
+                this.physics.add.collider(player,sol);
+
 
 
 
