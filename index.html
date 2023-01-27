@@ -113,21 +113,22 @@
                     tileset
                 );
 
-                fly = this.physics.add.group();
+                fly = this.physics.add.group({
+                    immovable: true,
+                    allowGravity: false
+                });
                 collectible = map.getObjectLayer('collectible');
                 collectible.objects.forEach( collectible => {
                 const collect_fly = fly.create( collectible.x, collectible.y, "collect").setScale(0.05)/*.setAllowGravity(false)*/;
                 //collect_fly.setImmovable(true)
-                //collect_fly.body.setAllowGravity(false)
-                console.log(collect_fly.body)
-                
-                
+                collect_fly.body.setAllowGravity(false)
+                console.log(collect_fly.body)            
                     
                 });
                 //fly.setAllowGravity(false);
 
                 //fly.body.gravity.y = 0;
-                fly.allowGravity = false;
+                //fly.allowGravity = false;
 
                 sol.setCollisionByProperty({collider: true});
 
