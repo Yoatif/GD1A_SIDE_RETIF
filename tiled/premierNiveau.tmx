@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="1">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="27">
  <editorsettings>
   <export target="premierNiveau.json" format="json"/>
  </editorsettings>
@@ -138,6 +138,33 @@
 151,152,153,151,152,153,151,152,153,151,152,153,151,152,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,151,152,153,151,152,153,151,152,153,151,152,153,151,152,153,0
 </data>
  </layer>
+ <objectgroup id="15" name="collectible">
+  <object id="1" x="140" y="1459"/>
+  <object id="2" x="273" y="1555"/>
+  <object id="3" x="790" y="1524"/>
+  <object id="4" x="148" y="279"/>
+  <object id="5" x="1419" y="273"/>
+  <object id="6" x="1319" y="146"/>
+  <object id="7" x="1485" y="685"/>
+  <object id="8" x="1552" y="772"/>
+  <object id="9" x="1297" y="1175"/>
+  <object id="10" x="1394" y="1554"/>
+  <object id="11" x="1132" y="1431"/>
+  <object id="12" x="267" y="1237"/>
+  <object id="13" x="75" y="843"/>
+  <object id="14" x="211" y="929"/>
+  <object id="16" x="304" y="741"/>
+  <object id="17" x="658" y="647"/>
+  <object id="18" x="881" y="612"/>
+  <object id="19" x="948" y="878"/>
+  <object id="20" x="630" y="1102"/>
+  <object id="21" x="1162" y="728"/>
+  <object id="22" x="1052" y="942"/>
+  <object id="23" x="695" y="367"/>
+  <object id="24" x="921" y="199"/>
+  <object id="25" x="786" y="448"/>
+  <object id="26" x="459" y="806"/>
+ </objectgroup>
  <layer id="13" name="deco" width="50" height="50">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,

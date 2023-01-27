@@ -24,7 +24,7 @@
                 default: 'arcade',
                 arcade: {
                     //définie la gravité, son orientation et l'affichage du débug.
-                    //gravity: { y: 300 },
+                    gravity: { y: 300 },
                     debug: true
                 }
             },
@@ -40,17 +40,23 @@
             //la variable game permet de lancé le jeu selon les paramètres de config
             var game = new Phaser.Game(config);
 
-            //déclaration variable 
+            //variable 
             let player;
-            let playerLife = 3;
-            let playerDead = false;
+            let cursors;
+            let controller;
+            let walljump;
+            let gameOver = false;
             let monster;
             let deathMonster;
-            let piques;
+            let spikes;
             let clef1 = false;
             let clef2 = false;
             let clef3 = false;
             let clef4 = false;
+            let lock1 = false;
+            let lock2 = false;
+            let lock3 = false;
+            let lock4 = false;
             let warp1;
             let warp2;
             let warp3;
@@ -65,19 +71,26 @@
 
             function preload(){
 
+                // background importation
                 this.load.image('bg',"assets/background_test.png");
-                this.load.image('grotte', 'assets/grotte.png')
-                this.load.spritesheet('player','asset/hero.png',{frameWidth: 512, frameHeight: 1024});
+                this.load.image('grotte', 'assets/grotte.png');
 
+                //spritesheet importation
+                this.load.spritesheet('player','assets/spritesheet.png',{frameWidth: 512, frameHeight: 1024});
+
+                //tiled importation
                 this.load.tilemapTiledJSON('temple','tiled/premierNiveau.json');
-                this.load.image('tileset', 'assets/Tileset.png')
+                this.load.image('tileset', 'assets/Tileset.png');
+
+                //import collectible
+                this.load.image('collect', 'assets/mouche.png');
 
             }
 
             function create(){
 
-                this.add.image(800,800,'bg')
-                this.add.image(800,1456,'grotte')
+                this.add.image(800,800,'bg');
+                this.add.image(800,1456,'grotte');
 
                 const map = this.add.tilemap("temple");
 
@@ -89,25 +102,99 @@
                 const fond = map.createStaticLayer(
                     "fond",
                     tileset
-                )
+                );
                 const sol = map.createStaticLayer(
                     "sol",
                     tileset
-                )
+                );
                 const deco = map.createStaticLayer(
                     "deco",
                     tileset
-                )
-                player = this.physics.add.sprite(100,450,'player');
+                );
+
+                fly = this.physics.add.group();
+                collectible = map.getObjectLayer('collectible');
+                collectible.objects.forEach( collectible => {
+                    const collect_fly = fly.create( collectible.x, collectible.y, "collect").setScale(0.05);
+                });
+                //fly.allowGravity = false;
+
+                sol.setCollisionByProperty({collider: true});
+
+                // player and animation creation
+                player = this.physics.add.sprite(48,1500,'player').setScale(0.05);
+                player.setCollideWorldBounds(true);
                 this.physics.add.collider(player,sol);
 
+                this.anims.create({
+                    key: 'left',
+                    frames: this.anims.generateFrameNumbers('player', {flyt:1,end:7}),
+                    frameRate: 10,
+                    repeat: -1
+                });
+                this.anims.create({
+                    key: 'turn',
+                    frames: [ { key: 'player', frame: 0 } ],
+                    frameRate: 20
+                });
 
+                //keyboard control
+                cursors = this.input.keyboard.createCursorKeys();
+                //gamepad creation
+                this.input.gamepad.once('connected', function (pad) {
+                    controller = pad;
+                });
 
+                this.physics.add.overlap(player, fly, collectFly, null, this);
+
+                //get score
+                scoreText = this.add.text(16,16, 'score: 0', {fontSize: '32px', fill:'#000'});
+
+                
 
             }
 
             function update(){
 
+                /*if(cursors.left.isDown){
+                    player.anims.play('left', true);
+                    player.setVelocityX(-300);
+                    player.setFlipX(false);
+                }else if(cursors.right.isDown){
+                    player.setVelocityX(300);
+                    player.anims.play('left', true);
+                    player.setFlipX(true);
+                }else{
+                    player.anims.play('stop', true);
+                    player.setVelocityX(0);
+                }
+                
+                if(cursors.up.isDown && player.body.touching.down){
+                    player.setVelocityY(-330);
+                }*/
+
+                
+
+            }
+            
+            function collectFly(player, fly){
+                fly.disableBody(true,true);
+                score += 10;
+                scoreText.setText('score: '+score);
+                if(flys.countActive(true)===0){
+                    flys.children.iterate(function(child){
+                        child.enableBody(true,child.x,0, true, true);
+                    });
+                    
+                }
+            }
+
+            function death(player) {
+                console.log("RIP");
+                this.physics.pause();
+                player.setTint(0xff0000);
+                player.anims.play('turn');
+                player.gravity(false)
             }
         </script>
     </body>
