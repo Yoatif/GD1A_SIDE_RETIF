@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" /><title>GD1A_SIDE_RETIF</title>
-        <script src="//cdn.jsdelivr.net/npm/phaser@3.6.1/dist/phaser.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
         
         <style type="text/css"> body { margin: 0; }</style>
         
@@ -16,8 +16,8 @@
 
             //définie les dimmensions de la fenetre de jeu, 
             //la map peut faire la taille que vous souhaitez (bon y'a une limite mais je ne sais plus a combien elle est),
-            width: 1600,
-            height: 1600,
+            width: 400,
+            height: 200,
 
 
             physics: {
@@ -68,23 +68,31 @@
             let warp9;
             let warp10;
             let fly;
+            let score;
 
 
             function preload(){
 
-                // background importation
+                //import background 
                 this.load.image('bg',"assets/background_test.png");
                 this.load.image('grotte', 'assets/grotte.png');
 
-                //spritesheet importation
+                //import spritesheet
                 this.load.spritesheet('player','assets/spritesheet.png',{frameWidth: 512, frameHeight: 1024});
 
-                //tiled importation
+                //import tiled
                 this.load.tilemapTiledJSON('temple','tiled/premierNiveau.json');
                 this.load.image('tileset', 'assets/Tileset.png');
 
                 //import collectible
                 this.load.image('collect', 'assets/mouche.png');
+
+                //import warp
+                this.load.image('warp', 'assets/warp.png');
+
+                //import enemy
+
+                //import spike
 
             }
 
@@ -100,15 +108,15 @@
                     "tileset"
                 );
 
-                const fond = map.createStaticLayer(
+                const fond = map.createLayer(
                     "fond",
                     tileset
                 );
-                const sol = map.createStaticLayer(
+                const sol = map.createLayer(
                     "sol",
                     tileset
                 );
-                const deco = map.createStaticLayer(
+                const deco = map.createLayer(
                     "deco",
                     tileset
                 );
@@ -122,7 +130,7 @@
                 const collect_fly = fly.create( collectible.x, collectible.y, "collect").setScale(0.05)/*.setAllowGravity(false)*/;
                 //collect_fly.setImmovable(true)
                 collect_fly.body.setAllowGravity(false)
-                console.log(collect_fly.body)            
+                //console.log(collect_fly.body)            
                     
                 });
                 //fly.setAllowGravity(false);
@@ -149,50 +157,52 @@
                     frameRate: 20
                 });
 
-                //keyboard control
-                cursors = this.input.keyboard.createCursorKeys();
-                //gamepad creation
-               
-               
                 // Redimension du Monde
                 this.physics.world.setBounds(0, 0, 1600, 1600);
                 //  Creation de la Camera
                 this.cameras.main.setBounds(0, 0, 1600, 1600);
                 // Ancrage de la Camera
                 this.cameras.main.startFollow(player);  
-                //set size
-                
+
+                //set overlap
                 this.physics.add.overlap(player, fly, collectFly, null, this);
 
                 //get score
                 scoreText = this.add.text(16,16, 'score: 0', {fontSize: '32px', fill:'#000'});
+                //scoreText.fixedToCamera = true;
 
+                //keyboard control
+                cursors = this.input.keyboard.createCursorKeys();
                 
-
+                //gamepad creation
             }
 
             function update(){
 
-                /*if(cursors.left.isDown){
+                if(cursors.left.isDown){
                     player.anims.play('left', true);
                     player.setVelocityX(-300);
-                    player.setFlipX(false);
+                    player.setFlipX(true);
                 }else if(cursors.right.isDown){
                     player.setVelocityX(300);
                     player.anims.play('left', true);
-                    player.setFlipX(true);
+                    player.setFlipX(false);
                 }else{
                     player.anims.play('stop', true);
                     player.setVelocityX(0);
                 }
                 
                 if(cursors.up.isDown && player.body.blocked.down){
-                    player.setVelocityY(-330);
+                    player.setVelocityY(-200);
                 }
 
-                this.input.gamepad.once('connected', function (pad) {
+                /*this.input.gamepad.once('connected', function (pad) {
                     controller = pad;
                 });*/
+
+                scoreText.x = this.cameras.main.x;
+                scoreText.y = this.cameras.main.y; 
+
 
 
                 
@@ -203,12 +213,7 @@
                 fly.disableBody(true,true);
                 score += 10;
                 scoreText.setText('score: '+score);
-                if(flys.countActive(true)===0){
-                    flys.children.iterate(function(child){
-                        child.enableBody(true,child.x,0, true, true);
-                    });
-                    
-                }
+                
             }
 
             function death(player) {
