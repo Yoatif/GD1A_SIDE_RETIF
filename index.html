@@ -167,8 +167,9 @@
                 //set overlap
                 this.physics.add.overlap(player, fly, collectFly, null, this);
 
+                
                 //get score
-                scoreText = this.add.text(16,16, 'score: 0', {fontSize: '32px', fill:'#000'});
+                scoreText = this.add.text(16,16, 'score: 0', {fontSize: '32px', fill:'#000'}).setScrollFactor(0).setScale(0.5);
                 //scoreText.fixedToCamera = true;
 
                 //keyboard control
