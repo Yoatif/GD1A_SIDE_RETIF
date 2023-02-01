@@ -91,8 +91,19 @@
                 this.load.image('warp', 'assets/warp.png');
 
                 //import enemy
+                this.load.spritesheet('loutre','spritesheet_enemy.png',{frameWidth:186, frameHeight:448});
 
-                //import spike
+                //import spike "grotte"
+                this.load.image('piquesSol', 'assets/piques_sol.png');
+                this.load.image('piquesPlafond', 'assets/piques_plafond.png');
+                this.load.image('piquesMurG', 'assets/piques_mur_G.png');
+                this.load.image('piquesMurD', 'assets/piques_mur_D.png');
+
+                //import spike "temple"
+                this.load.image('piquesSolTemple', 'assets/piques_mur_sol_temple.png');
+                this.load.image('piquesPlafondTemple', 'assets/piques_mur_ceilling_temple.png');
+                this.load.image('piquesMurGTemple', 'assets/piques_mur_G_temple.png');
+                this.load.image('piquesMurDTemple', 'assets/piques_mur_D_temple.png');
 
             }
 
@@ -125,6 +136,7 @@
                     immovable: true,
                     allowGravity: false
                 });
+
                 collectible = map.getObjectLayer('collectible');
                 collectible.objects.forEach( collectible => {
                 const collect_fly = fly.create( collectible.x, collectible.y, "collect").setScale(0.05)/*.setAllowGravity(false)*/;
@@ -137,6 +149,37 @@
 
                 //fly.body.gravity.y = 0;
                 //fly.allowGravity = false;
+
+                //importation calques piques grotte
+
+                piques_rightGroup = this.physics.add.group({
+                    AllowGravity: false,
+                    Immovable: true
+                });
+                piques_right = map.getObjectLayer('spike_grotte_right');
+                piques_right.objects.forEach(piques_right=> {
+                const RPiques =  piques_rightGroup.create(piques_right.x,  piques_right.y, "piquesMurD"); 
+                });
+
+                piques_leftGroup = this.physics.add.group();
+                piques_left = map.getObjectLayer('spike_grotte_left');
+                piques_left.objects.forEach(piques_left=> {
+                const LPiques =  piques_leftGroup.create(piques_left.x,  piques_left.y, "piquesMurG"); 
+                });
+
+                piques_solGroup = this.physics.add.group();
+                piques_sol = map.getObjectLayer('spike_grotte_sol');
+                piques_sol.objects.forEach(piques_sol=> {
+                    const Spiques = piques_solGroup.create(piques_sol.x, piques_sol.y, "piquesSol");
+                });
+
+                piques_ceillingGroup = this.physics.add.group();
+                piques_ceilling = map.getObjectLayer('spike_grotte_ceilling');
+                piques_ceilling.objects.forEach(piques_ceilling => {
+                    const Cpiques = piques_ceillingGroup.create(piques_ceilling.x, piques_ceilling.y, "piques_plafond");
+                });
+
+                
 
                 sol.setCollisionByProperty({collider: true});
 
