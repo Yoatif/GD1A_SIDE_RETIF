@@ -165,6 +165,62 @@
   <object id="25" x="786" y="448"/>
   <object id="26" x="459" y="806"/>
  </objectgroup>
+ <objectgroup id="24" name="spike_grotte_sol">
+  <object id="80" x="1428" y="1557"/>
+  <object id="81" x="618" y="1526.5"/>
+ </objectgroup>
+ <objectgroup id="26" name="spike_grotte_right">
+  <object id="82" x="437" y="1482"/>
+  <object id="83" x="949.5" y="1525"/>
+  <object id="84" x="1526.5" y="1418"/>
+ </objectgroup>
+ <objectgroup id="27" name="spike_grotte_left">
+  <object id="86" x="41.5" y="1353.5"/>
+ </objectgroup>
+ <objectgroup id="25" name="spike_grotte_ceilling">
+  <object id="87" x="213.5" y="1353.5"/>
+  <object id="88" x="234" y="1482"/>
+ </objectgroup>
+ <objectgroup id="19" name="floor_spike">
+  <object id="64" x="948" y="373"/>
+  <object id="65" x="650.5" y="1141"/>
+  <object id="66" x="885" y="1141.5"/>
+  <object id="68" x="457" y="852.5"/>
+  <object id="70" x="1482" y="950"/>
+  <object id="71" x="1396.5" y="1173"/>
+ </objectgroup>
+ <objectgroup id="20" name="ceilling_spike">
+  <object id="72" x="146" y="522.5"/>
+  <object id="73" x="340.5" y="682.5"/>
+  <object id="74" x="950" y="170.5"/>
+  <object id="75" x="1558" y="458.5"/>
+  <object id="76" x="1258" y="523"/>
+  <object id="79" x="1129.5" y="1034"/>
+ </objectgroup>
+ <objectgroup id="17" name="left_spike">
+  <object id="40" x="74.5" y="657.5"/>
+  <object id="41" x="266" y="879.5"/>
+  <object id="42" x="299.5" y="1260.5"/>
+  <object id="44" x="1129.5" y="1033.5"/>
+  <object id="45" x="1258" y="523"/>
+  <object id="46" x="1418.5" y="201"/>
+  <object id="47" x="715" y="522.5"/>
+  <object id="48" x="650.5" y="554"/>
+  <object id="49" x="618" y="586.5"/>
+  <object id="50" x="586.5" y="618"/>
+  <object id="51" x="585.5" y="1077.5"/>
+  <object id="52" x="683" y="1174.5"/>
+ </objectgroup>
+ <objectgroup id="18" name="right_spike">
+  <object id="56" x="949.5" y="617.5"/>
+  <object id="57" x="918" y="586"/>
+  <object id="58" x="885" y="554"/>
+  <object id="59" x="853.5" y="521.5"/>
+  <object id="60" x="277.5" y="202"/>
+  <object id="61" x="1558" y="105.5"/>
+  <object id="62" x="1396.5" y="684"/>
+  <object id="63" x="1173" y="824.5"/>
+ </objectgroup>
  <group id="28" name="warp">
   <objectgroup id="16" name="warp1">
    <object id="89" x="422.5" y="1535.5"/>
@@ -172,68 +228,6 @@
   <objectgroup id="29" name="warp2">
    <object id="91" x="45" y="208.5"/>
   </objectgroup>
- </group>
- <group id="21" name="spike">
-  <group id="23" name="grotte_spike">
-   <objectgroup id="24" name="spike_grotte_sol">
-    <object id="80" x="1428" y="1557"/>
-    <object id="81" x="618" y="1526.5"/>
-   </objectgroup>
-   <objectgroup id="26" name="spike_grotte_right">
-    <object id="82" x="437" y="1482"/>
-    <object id="83" x="949.5" y="1525"/>
-    <object id="84" x="1526.5" y="1418"/>
-   </objectgroup>
-   <objectgroup id="27" name="spike_grotte_left">
-    <object id="86" x="41.5" y="1353.5"/>
-   </objectgroup>
-   <objectgroup id="25" name="spike_grotte_ceilling">
-    <object id="87" x="213.5" y="1353.5"/>
-    <object id="88" x="234" y="1482"/>
-   </objectgroup>
-  </group>
-  <group id="22" name="temple_spike">
-   <objectgroup id="19" name="floor_spike">
-    <object id="64" x="948" y="373"/>
-    <object id="65" x="650.5" y="1141"/>
-    <object id="66" x="885" y="1141.5"/>
-    <object id="68" x="457" y="852.5"/>
-    <object id="70" x="1482" y="950"/>
-    <object id="71" x="1396.5" y="1173"/>
-   </objectgroup>
-   <objectgroup id="20" name="ceilling_spike">
-    <object id="72" x="146" y="522.5"/>
-    <object id="73" x="340.5" y="682.5"/>
-    <object id="74" x="950" y="170.5"/>
-    <object id="75" x="1558" y="458.5"/>
-    <object id="76" x="1258" y="523"/>
-    <object id="79" x="1129.5" y="1034"/>
-   </objectgroup>
-   <objectgroup id="17" name="left_spike">
-    <object id="40" x="74.5" y="657.5"/>
-    <object id="41" x="266" y="879.5"/>
-    <object id="42" x="299.5" y="1260.5"/>
-    <object id="44" x="1129.5" y="1033.5"/>
-    <object id="45" x="1258" y="523"/>
-    <object id="46" x="1418.5" y="201"/>
-    <object id="47" x="715" y="522.5"/>
-    <object id="48" x="650.5" y="554"/>
-    <object id="49" x="618" y="586.5"/>
-    <object id="50" x="586.5" y="618"/>
-    <object id="51" x="585.5" y="1077.5"/>
-    <object id="52" x="683" y="1174.5"/>
-   </objectgroup>
-   <objectgroup id="18" name="right_spike">
-    <object id="56" x="949.5" y="617.5"/>
-    <object id="57" x="918" y="586"/>
-    <object id="58" x="885" y="554"/>
-    <object id="59" x="853.5" y="521.5"/>
-    <object id="60" x="277.5" y="202"/>
-    <object id="61" x="1558" y="105.5"/>
-    <object id="62" x="1396.5" y="684"/>
-    <object id="63" x="1173" y="824.5"/>
-   </objectgroup>
-  </group>
  </group>
  <layer id="13" name="deco" width="50" height="50">
   <data encoding="csv">
