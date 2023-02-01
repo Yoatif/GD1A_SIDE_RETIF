@@ -151,7 +151,7 @@
                 //fly.allowGravity = false;
 
                 //importation calques piques grotte
-
+                // piques grotte a droite
                 piques_rightGroup = this.physics.add.group({
                     AllowGravity: false,
                     Immovable: true
@@ -162,7 +162,7 @@
                 
                 RPiques.body.setAllowGravity(false)
                 });
-
+                //piques grotte au plafond
                 piques_ceillingGroup = this.physics.add.group({
                     AllowGravity: false,
                     Immovable: true
@@ -173,6 +173,64 @@
                 
                 CPiques.body.setAllowGravity(false)
                 });
+                //piques grotte au sol
+                piques_floorGroup = this.physics.add.group({
+                    AllowGravity: false,
+                    Immovable: true
+                });
+                piques_floor = map.getObjectLayer('spike_grotte_sol');
+                piques_floor.objects.forEach(piques_floor=> {
+                const SPiques =  piques_ceillingGroup.create(piques_floor.x,  piques_floor.y, "piquesSol").setScale(0.1); 
+                
+                SPiques.body.setAllowGravity(false)
+                });
+
+                piques_leftGroup = this.physics.add.group({
+                    AllowGravity: false,
+                    Immovable: true
+                });
+                piques_left = map.getObjectLayer('left_spike');
+                piques_left.objects.forEach(piques_left=> {
+                const LPiques =  piques_leftGroup.create(piques_left.x,  piques_left.y, "piquesMurGTemple").setScale(0.1); 
+                
+                LPiques.body.setAllowGravity(false)
+                });
+
+                // importation calques piques temple
+
+                /*piques_temple_leftGroup = this.physics.add.group({
+                    AllowGravity: false,
+                    Immovable: true
+                });
+                piques_temple_left = map.getObjectLayer('spike_grotte_left');
+                piques_temple_left.objects.forEach(piques_temple_left=> {
+                const LTPiques =  piques_temple_leftGroup.create(piques_temple_left.x,  piques_temple_left.y, "piquesMurG").setScale(0.1); 
+                
+                LTPiques.body.setAllowGravity(false)
+                });*/
+                
+                piques_temple_rightGroup = this.physics.add.group({
+                    AllowGravity: false,
+                    Immovable: true
+                });
+                piques_temple_right = map.getObjectLayer('right_spike');
+                piques_temple_right.objects.forEach(piques_temple_right=> {
+                const RTPiques =  piques_temple_rightGroup.create(piques_temple_right.x,  piques_temple_right.y, "piquesMurDTemple").setScale(0.1); 
+                
+                RTPiques.body.setAllowGravity(false)
+                });
+
+                piques_temple_ceillingGroup = this.physics.add.group({
+                    AllowGravity: false,
+                    Immovable: true
+                });
+                piques_temple_ceilling = map.getObjectLayer('ceilling_spike');
+                piques_temple_ceilling.objects.forEach(piques_temple_ceilling=> {
+                const CTPiques =  piques_temple_ceillingGroup.create(piques_temple_ceilling.x,  piques_temple_ceilling.y, "piquesPlafondTemple").setScale(0.1); 
+                
+                CTPiques.body.setAllowGravity(false)
+                });
+                
 
                 sol.setCollisionByProperty({collider: true});
 
