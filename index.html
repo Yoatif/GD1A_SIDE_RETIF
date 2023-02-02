@@ -189,25 +189,25 @@
                     AllowGravity: false,
                     Immovable: true
                 });
-                piques_left = map.getObjectLayer('left_spike');
+                piques_left = map.getObjectLayer('spike_grotte_left');
                 piques_left.objects.forEach(piques_left=> {
-                const LPiques =  piques_leftGroup.create(piques_left.x,  piques_left.y, "piquesMurGTemple").setScale(0.1); 
+                const LPiques =  piques_leftGroup.create(piques_left.x,  piques_left.y, "piquesMurG").setScale(0.1); 
                 
                 LPiques.body.setAllowGravity(false)
                 });
 
                 // importation calques piques temple
 
-                /*piques_temple_leftGroup = this.physics.add.group({
+                piques_temple_leftGroup = this.physics.add.group({
                     AllowGravity: false,
                     Immovable: true
                 });
-                piques_temple_left = map.getObjectLayer('spike_grotte_left');
+                piques_temple_left = map.getObjectLayer('left_spike');
                 piques_temple_left.objects.forEach(piques_temple_left=> {
-                const LTPiques =  piques_temple_leftGroup.create(piques_temple_left.x,  piques_temple_left.y, "piquesMurG").setScale(0.1); 
+                const LTPiques =  piques_temple_leftGroup.create(piques_temple_left.x,  piques_temple_left.y, "piquesMurGTemple").setScale(0.1); 
                 
                 LTPiques.body.setAllowGravity(false)
-                });*/
+                });
                 
                 piques_temple_rightGroup = this.physics.add.group({
                     AllowGravity: false,
@@ -229,6 +229,17 @@
                 const CTPiques =  piques_temple_ceillingGroup.create(piques_temple_ceilling.x,  piques_temple_ceilling.y, "piquesPlafondTemple").setScale(0.1); 
                 
                 CTPiques.body.setAllowGravity(false)
+                });
+
+                piques_temple_floorGroup = this.physics.add.group({
+                    AllowGravity: false,
+                    Immovable: true
+                });
+                piques_temple_floor = map.getObjectLayer('floor_spike');
+                piques_temple_floor.objects.forEach(piques_temple_ceilling=> {
+                const FTPiques =  piques_temple_floorGroup.create(piques_temple_floor.x,  piques_temple_floor.y, "piquesSolTemple").setScale(0.1); 
+                
+                FTPiques.body.setAllowGravity(false)
                 });
                 
 
