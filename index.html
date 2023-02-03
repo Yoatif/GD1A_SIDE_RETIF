@@ -93,7 +93,7 @@
                 this.load.image('warp', 'assets/warp.png');
 
                 //import enemy
-                //this.load.spritesheet('loutre','spritesheet_enemy.png',{frameWidth:186, frameHeight:448});
+                this.load.spritesheet('loutre','spritesheet_enemy.png',{frameWidth:186, frameHeight:448});
 
                 //import spike "grotte"
                 this.load.image('piquesSol', 'assets/piques_sol.png');
@@ -240,11 +240,13 @@
                 });
 
                 piques_temple_floor = map.getObjectLayer('floor_spike');
-                piques_temple_floor.objects.forEach(piques_temple_ceilling=> {
+                piques_temple_floor.objects.forEach(piques_temple_floor=> {
                 const FTPiques =  piques_temple_floorGroup.create(piques_temple_floor.x,  piques_temple_floor.y, "piquesSolTemple").setScale(0.1); 
                 FTPiques.body.setImmovable(true)
                 FTPiques.body.setAllowGravity(false)
                 });
+
+                
 
                 
                 
