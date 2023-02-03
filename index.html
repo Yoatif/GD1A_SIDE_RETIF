@@ -70,7 +70,7 @@
             let warp9;
             let warp10;
             let fly;
-            let score;
+            let score=0;
 
 
             function preload(){
@@ -363,9 +363,11 @@
                 
             }
 
-            function isSpiked(playerLife){
-
+            function isSpiked(player){
+                player.disableBody(true,true);    
                 console.log("is spiked");
+                score=0;
+                this.scene.restart();
                 //this.scene.restart()
             }
 
