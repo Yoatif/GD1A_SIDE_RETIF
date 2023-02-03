@@ -235,12 +235,24 @@
                     AllowGravity: false,
                     Immovable: true
                 });
+
                 piques_temple_floor = map.getObjectLayer('floor_spike');
                 piques_temple_floor.objects.forEach(piques_temple_ceilling=> {
                 const FTPiques =  piques_temple_floorGroup.create(piques_temple_floor.x,  piques_temple_floor.y, "piquesSolTemple").setScale(0.1); 
                 
                 FTPiques.body.setAllowGravity(false)
                 });
+
+                //creating collider with the different spikes layer
+                /*this.physics.add.overlap(player, piques_ceillingGroup, isSpike, null, this);
+                this.physics.add.overlap(player, piques_floorGroup, isSpike, null, this);
+                this.physics.add.overlap(player, piques_leftGroup, isSpike, null, this);
+                this.physics.add.overlap(player, piques_rightGroup, isSpike, null, this);
+                this.physics.add.overlap(player, piques_temple_ceillingGroup, isSpike, null, this);
+                this.physics.add.overlap(player, piques_temple_floorGroup, isSpike, null, this);
+                this.physics.add.overlap(player, piques_temple_leftGroup, isSpike, null, this);
+                this.physics.add.overlap(player, piques_temple_rightGroup, isSpike, null, this);*/
+                
                 
 
                 sol.setCollisionByProperty({collider: true});
@@ -269,7 +281,7 @@
                 // Ancrage de la Camera
                 this.cameras.main.startFollow(player);  
 
-                //set overlap
+                //set overlap with fly
                 this.physics.add.overlap(player, fly, collectFly, null, this);
 
                 
@@ -344,6 +356,11 @@
                 score += 10;
                 scoreText.setText('score: '+score);
                 
+            }
+
+            function isSpike(player){
+                console.log("is spiked")
+                //this.scene.restart()
             }
 
             
