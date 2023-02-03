@@ -21,6 +21,7 @@
 
 
             physics: {
+                
                 default: 'arcade',
                 arcade: {
                     //définie la gravité, son orientation et l'affichage du débug.
@@ -28,7 +29,7 @@
                     debug: true
                 }
             },
-
+            input:{gamepad:true},
             //définie l'ordre de lecture des scènes
             scene: {
                 preload: preload,
@@ -44,7 +45,7 @@
             let player;
             let playerLife = 1;
             let cursors;
-            let controller;
+            let controller = false;
             let walljump = true;
             let gameOver = false;
             let monster;
@@ -160,7 +161,7 @@
                 piques_right = map.getObjectLayer('spike_grotte_right');
                 piques_right.objects.forEach(piques_right=> {
                 const RPiques =  piques_rightGroup.create(piques_right.x,  piques_right.y, "piquesMurD").setScale(0.1); 
-                
+                RPiques.body.setImmovable(true)
                 RPiques.body.setAllowGravity(false)
                 });
                 //piques grotte au plafond
@@ -173,6 +174,7 @@
                 const CPiques =  piques_ceillingGroup.create(piques_ceilling.x,  piques_ceilling.y, "piquesPlafond").setScale(0.1); 
                 
                 CPiques.body.setAllowGravity(false)
+                CPiques.body.setImmovable(true)
                 });
                 //piques grotte au sol
                 piques_floorGroup = this.physics.add.group({
@@ -181,8 +183,8 @@
                 });
                 piques_floor = map.getObjectLayer('spike_grotte_sol');
                 piques_floor.objects.forEach(piques_floor=> {
-                const SPiques =  piques_ceillingGroup.create(piques_floor.x,  piques_floor.y, "piquesSol").setScale(0.1); 
-                
+                const SPiques =  piques_floorGroup.create(piques_floor.x,  piques_floor.y, "piquesSol").setScale(0.1); 
+                SPiques.body.setImmovable(true)
                 SPiques.body.setAllowGravity(false)
                 });
 
@@ -193,7 +195,7 @@
                 piques_left = map.getObjectLayer('spike_grotte_left');
                 piques_left.objects.forEach(piques_left=> {
                 const LPiques =  piques_leftGroup.create(piques_left.x,  piques_left.y, "piquesMurG").setScale(0.1); 
-                
+                LPiques.body.setImmovable(true)
                 LPiques.body.setAllowGravity(false)
                 });
 
@@ -206,7 +208,7 @@
                 piques_temple_left = map.getObjectLayer('left_spike');
                 piques_temple_left.objects.forEach(piques_temple_left=> {
                 const LTPiques =  piques_temple_leftGroup.create(piques_temple_left.x,  piques_temple_left.y, "piquesMurGTemple").setScale(0.1); 
-                
+                LTPiques.body.setImmovable(true)
                 LTPiques.body.setAllowGravity(false)
                 });
                 
@@ -228,7 +230,7 @@
                 piques_temple_ceilling = map.getObjectLayer('ceilling_spike');
                 piques_temple_ceilling.objects.forEach(piques_temple_ceilling=> {
                 const CTPiques =  piques_temple_ceillingGroup.create(piques_temple_ceilling.x,  piques_temple_ceilling.y, "piquesPlafondTemple").setScale(0.1); 
-                
+                CTPiques.body.setImmovable(true)
                 CTPiques.body.setAllowGravity(false)
                 });
 
@@ -240,19 +242,10 @@
                 piques_temple_floor = map.getObjectLayer('floor_spike');
                 piques_temple_floor.objects.forEach(piques_temple_ceilling=> {
                 const FTPiques =  piques_temple_floorGroup.create(piques_temple_floor.x,  piques_temple_floor.y, "piquesSolTemple").setScale(0.1); 
-                
+                FTPiques.body.setImmovable(true)
                 FTPiques.body.setAllowGravity(false)
                 });
 
-                //creating collider with the different spikes layer
-                this.physics.add.collider(player, piques_ceillingGroup, isSpiked, null, this);
-                /*this.physics.add.overlap(player, piques_floorGroup, isSpike, null, this);
-                this.physics.add.overlap(player, piques_leftGroup, isSpike, null, this);
-                this.physics.add.overlap(player, piques_rightGroup, isSpike, null, this);
-                this.physics.add.overlap(player, piques_temple_ceillingGroup, isSpike, null, this);
-                this.physics.add.overlap(player, piques_temple_floorGroup, isSpike, null, this);
-                this.physics.add.overlap(player, piques_temple_leftGroup, isSpike, null, this);
-                this.physics.add.overlap(player, piques_temple_rightGroup, isSpike, null, this);*/
                 
                 
 
@@ -285,6 +278,17 @@
                 //set overlap with fly
                 this.physics.add.overlap(player, fly, collectFly, null, this);
 
+                //creating collider with the different spikes layer
+                this.physics.add.collider(player, piques_ceillingGroup, isSpiked, null, this);
+                this.physics.add.collider(player, piques_floorGroup, isSpiked, null, this);
+                this.physics.add.collider(player, piques_leftGroup, isSpiked, null, this);
+                this.physics.add.collider(player, piques_rightGroup, isSpiked, null, this);
+                this.physics.add.collider(player, piques_temple_ceillingGroup, isSpiked, null, this);
+                this.physics.add.collider(player, piques_temple_floorGroup, isSpiked, null, this);
+                this.physics.add.collider(player, piques_temple_leftGroup, isSpiked, null, this);
+                this.physics.add.collider(player, piques_temple_rightGroup, isSpiked, null, this);
+                
+
                 
                 //get score
                 scoreText = this.add.text(16,16, 'score: 0', {fontSize: '32px', fill:'#000'}).setScrollFactor(0).setScale(0.5);
@@ -315,7 +319,7 @@
                     player.setVelocityY(-200);
                 }
                 //Wall Jump
-                if (cursors.up.isDown && player.body.blocked.right /*|| controller.up && player.body.blocked.right*/) {
+                if (cursors.up.isDown && player.body.blocked.right || controller.up && player.body.blocked.right) {
                     if (walljump == true) {
                         //walljump = false;
                         //  offTouche = true;
@@ -327,7 +331,7 @@
                     }
                 }
 
-                if (cursors.up.isDown && player.body.blocked.left /*|| controller.up && player.body.blocked.left*/) {
+                if (cursors.up.isDown && player.body.blocked.left || controller.up && player.body.blocked.left) {
                     if (walljump == true) {
                         //walljump = false;
                         //offTouche = true;
@@ -339,9 +343,9 @@
                     }
                 }
 
-                /*this.input.gamepad.once('connected', function (pad) {
+                this.input.gamepad.once('connected', function (pad) {
                     controller = pad;
-                });*/
+                });
 
                 scoreText.x = this.cameras.main.x;
                 scoreText.y = this.cameras.main.y; 
@@ -360,7 +364,7 @@
             }
 
             function isSpiked(playerLife){
-                playerLife -=1;
+
                 console.log("is spiked");
                 //this.scene.restart()
             }
