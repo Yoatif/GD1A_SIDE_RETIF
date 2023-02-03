@@ -42,6 +42,7 @@
 
             //variable 
             let player;
+            let playerLife = 1;
             let cursors;
             let controller;
             let walljump = true;
@@ -244,8 +245,8 @@
                 });
 
                 //creating collider with the different spikes layer
-                /*this.physics.add.overlap(player, piques_ceillingGroup, isSpike, null, this);
-                this.physics.add.overlap(player, piques_floorGroup, isSpike, null, this);
+                this.physics.add.collider(player, piques_ceillingGroup, isSpiked, null, this);
+                /*this.physics.add.overlap(player, piques_floorGroup, isSpike, null, this);
                 this.physics.add.overlap(player, piques_leftGroup, isSpike, null, this);
                 this.physics.add.overlap(player, piques_rightGroup, isSpike, null, this);
                 this.physics.add.overlap(player, piques_temple_ceillingGroup, isSpike, null, this);
@@ -358,8 +359,9 @@
                 
             }
 
-            function isSpike(player){
-                console.log("is spiked")
+            function isSpiked(playerLife){
+                playerLife -=1;
+                console.log("is spiked");
                 //this.scene.restart()
             }
 
