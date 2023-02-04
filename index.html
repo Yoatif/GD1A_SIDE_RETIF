@@ -59,16 +59,6 @@
             let lock2 = false;
             let lock3 = false;
             let lock4 = false;
-            let warp1;
-            let warp2;
-            let warp3;
-            let warp4;
-            let warp5;
-            let warp6;
-            let warp7;
-            let warp8;
-            let warp9;
-            let warp10;
             let fly;
             let score=0;
 
@@ -242,13 +232,57 @@
                 piques_temple_floor = map.getObjectLayer('floor_spike');
                 piques_temple_floor.objects.forEach(piques_temple_floor=> {
                 const FTPiques =  piques_temple_floorGroup.create(piques_temple_floor.x,  piques_temple_floor.y, "piquesSolTemple").setScale(0.1); 
-                FTPiques.body.setImmovable(true)
-                FTPiques.body.setAllowGravity(false)
+                FTPiques.body.setImmovable(true);
+                FTPiques.body.setAllowGravity(false);
+                });
+                
+                warp1G= this.physics.add.group({
+
+                });
+                
+                teleporteur1 = map.getObjectLayer('warp1');
+                teleporteur1.objects.forEach(teleporteur1=> {
+                const w1 = warp1G.create(teleporteur1.x, teleporteur1.y, "warp" );
+                w1.body.setImmovable(true);
+                w1.body.setAllowGravity(false);
+
                 });
 
-                
+                warp2G= this.physics.add.group({
 
-                
+                });
+
+                teleporteur2 = map.getObjectLayer('warp2');
+                teleporteur2.objects.forEach(teleporteur2=> {
+                const w2 = warp2G.create(teleporteur2.x, teleporteur2.y, "warp" );
+                w2.body.setImmovable(true);
+                w2.body.setAllowGravity(false);
+
+                });
+
+                warp3G= this.physics.add.group({
+
+                });
+
+                teleporteur3 = map.getObjectLayer('warp3');
+                teleporteur3.objects.forEach(teleporteur3=> {
+                const w3 = warp3G.create(teleporteur3.x, teleporteur3.y, "warp" );
+                w3.body.setImmovable(true);
+                w3.body.setAllowGravity(false);
+
+                });
+
+                warp4G= this.physics.add.group({
+
+                });
+
+                teleporteur4 = map.getObjectLayer('warp4');
+                teleporteur4.objects.forEach(teleporteur4=> {
+                const w4 = warp4G.create(teleporteur4.x, teleporteur4.y, "warp" );
+                w4.body.setImmovable(true);
+                w4.body.setAllowGravity(false);
+
+                });
                 
 
                 sol.setCollisionByProperty({collider: true});
@@ -289,6 +323,12 @@
                 this.physics.add.collider(player, piques_temple_floorGroup, isSpiked, null, this);
                 this.physics.add.collider(player, piques_temple_leftGroup, isSpiked, null, this);
                 this.physics.add.collider(player, piques_temple_rightGroup, isSpiked, null, this);
+
+                //creating overlap between player and warp
+                this.physics.add.overlap(player, warp1G, warped1, null, this);
+                this.physics.add.overlap(player, warp2G, warped2, null, this);
+                this.physics.add.overlap(player, warp3G, warped3, null, this);
+                this.physics.add.overlap(player, warp4G, warped4, null, this);
                 
 
                 
@@ -350,12 +390,7 @@
                 });
 
                 scoreText.x = this.cameras.main.x;
-                scoreText.y = this.cameras.main.y; 
-
-
-
-                
-
+                scoreText.y = this.cameras.main.y;
             }
             
             function collectFly(player, fly){
@@ -363,6 +398,48 @@
                 score += 10;
                 scoreText.setText('score: '+score);
                 
+            }
+            function getRandom() {
+                result = Phaser.Math.Between(0,1);
+                console.log(result)
+            return result;
+            }
+
+            function warped1(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 150;
+                    player.body.position.y = 164;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 1550;
+                    player.body.position.y = 500;
+                    console.log(player.body.position);
+                };
+            }
+            function warped2(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 298;
+                    player.body.position.y = 1500;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 1550;
+                    player.body.position.y = 500;
+                    console.log(player.body.position);
+                };
+            }
+            function warped3(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 150;
+                    player.body.position.y = 164;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 298;
+                    player.body.position.y = 1500;
+                    console.log(player.body.position);
+                };
             }
 
             function isSpiked(player){

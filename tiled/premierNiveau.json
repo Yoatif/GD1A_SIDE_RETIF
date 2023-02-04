@@ -983,55 +983,89 @@
          "y":0
         }, 
         {
-         "id":28,
-         "layers":[
+         "draworder":"topdown",
+         "id":16,
+         "name":"warp1",
+         "objects":[
                 {
-                 "draworder":"topdown",
-                 "id":16,
-                 "name":"warp1",
-                 "objects":[
-                        {
-                         "class":"",
-                         "height":0,
-                         "id":89,
-                         "name":"",
-                         "rotation":0,
-                         "visible":true,
-                         "width":0,
-                         "x":422.5,
-                         "y":1535.5
-                        }],
-                 "opacity":1,
-                 "type":"objectgroup",
+                 "class":"",
+                 "height":0,
+                 "id":89,
+                 "name":"",
+                 "rotation":0,
                  "visible":true,
-                 "x":0,
-                 "y":0
-                }, 
-                {
-                 "draworder":"topdown",
-                 "id":29,
-                 "name":"warp2",
-                 "objects":[
-                        {
-                         "class":"",
-                         "height":0,
-                         "id":91,
-                         "name":"",
-                         "rotation":0,
-                         "visible":true,
-                         "width":0,
-                         "x":45,
-                         "y":208.5
-                        }],
-                 "opacity":1,
-                 "type":"objectgroup",
-                 "visible":true,
-                 "x":0,
-                 "y":0
+                 "width":0,
+                 "x":422.5,
+                 "y":1535.5
                 }],
-         "name":"warp",
          "opacity":1,
-         "type":"group",
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":29,
+         "name":"warp2",
+         "objects":[
+                {
+                 "class":"",
+                 "height":0,
+                 "id":91,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":0,
+                 "x":45,
+                 "y":208.5
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":32,
+         "name":"warp3",
+         "objects":[
+                {
+                 "class":"",
+                 "height":0,
+                 "id":105,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":0,
+                 "x":1491,
+                 "y":469.5
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":33,
+         "name":"warp4",
+         "objects":[
+                {
+                 "class":"",
+                 "height":0,
+                 "id":106,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":0,
+                 "x":203.25,
+                 "y":1442
+                }],
+         "opacity":1,
+         "type":"objectgroup",
          "visible":true,
          "x":0,
          "y":0
@@ -1097,8 +1131,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":32,
- "nextobjectid":103,
+ "nextlayerid":34,
+ "nextobjectid":107,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.2",
