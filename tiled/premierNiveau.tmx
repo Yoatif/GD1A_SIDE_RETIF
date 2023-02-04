@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="44" nextobjectid="117">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="52" nextobjectid="131">
  <editorsettings>
   <export target="premierNiveau.json" format="json"/>
  </editorsettings>
@@ -239,6 +239,7 @@
  </objectgroup>
  <objectgroup id="34" name="warp5">
   <object id="107" x="768" y="762"/>
+  <object id="119" x="934" y="1322" height="2"/>
  </objectgroup>
  <objectgroup id="35" name="warp6">
   <object id="108" x="700" y="185"/>
@@ -265,8 +266,30 @@
   <object id="115" x="356" y="988"/>
  </objectgroup>
  <objectgroup id="43" name="warp14">
-  <object id="116" x="944" y="942"/>
+  <object id="116" x="1554" y="264"/>
  </objectgroup>
+ <objectgroup id="44" name="warp15">
+  <object id="117" x="1046" y="698"/>
+ </objectgroup>
+ <objectgroup id="45" name="warp16">
+  <object id="118" x="262" y="252"/>
+ </objectgroup>
+ <objectgroup id="46" name="warp17">
+  <object id="122" x="934" y="1328"/>
+ </objectgroup>
+ <objectgroup id="47" name="warp18">
+  <object id="123" x="420" y="1380"/>
+ </objectgroup>
+ <objectgroup id="48" name="clef1">
+  <object id="128" x="116" y="1219"/>
+ </objectgroup>
+ <objectgroup id="49" name="clef2">
+  <object id="129" x="876" y="352"/>
+ </objectgroup>
+ <objectgroup id="50" name="clef3">
+  <object id="130" x="1188" y="1537.33"/>
+ </objectgroup>
+ <objectgroup id="51" name="clef4"/>
  <layer id="13" name="deco" width="50" height="50">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,
