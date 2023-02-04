@@ -283,12 +283,164 @@
                 w4.body.setAllowGravity(false);
 
                 });
+
+                warp5G= this.physics.add.group({
+
+                });
+
+                teleporteur5 = map.getObjectLayer('warp5');
+                teleporteur5.objects.forEach(teleporteur5=> {
+                const w5 = warp5G.create(teleporteur5.x, teleporteur5.y, "warp" );
+                w5.body.setImmovable(true);
+                w5.body.setAllowGravity(false);
+
+                });
+                warp6G= this.physics.add.group({
+
+                });
+
+                teleporteur6 = map.getObjectLayer('warp6');
+                teleporteur6.objects.forEach(teleporteur6=> {
+                const w6 = warp6G.create(teleporteur6.x, teleporteur6.y, "warp" );
+                w6.body.setImmovable(true);
+                w6.body.setAllowGravity(false);
+
+                });
+                warp7G= this.physics.add.group({
+
+                });
+
+                teleporteur7 = map.getObjectLayer('warp7');
+                teleporteur7.objects.forEach(teleporteur7=> {
+                const w7 = warp7G.create(teleporteur7.x, teleporteur7.y, "warp" );
+                w7.body.setImmovable(true);
+                w7.body.setAllowGravity(false);
+
+                });
+                warp8G= this.physics.add.group({
+
+                });
+
+                teleporteur8 = map.getObjectLayer('warp8');
+                teleporteur8.objects.forEach(teleporteur8=> {
+                const w8 = warp8G.create(teleporteur8.x, teleporteur8.y, "warp" );
+                w8.body.setImmovable(true);
+                w8.body.setAllowGravity(false);
+
+                });
+
+                warp9G= this.physics.add.group({
+                });
+                teleporteur9 = map.getObjectLayer('warp9');
+                teleporteur9.objects.forEach(teleporteur9=> {
+                const w9 = warp9G.create(teleporteur9.x, teleporteur9.y, "warp" );
+                w9.body.setImmovable(true);
+                w9.body.setAllowGravity(false);
+
+                });
+                warp10G= this.physics.add.group({
+
+                });
+
+                teleporteur10 = map.getObjectLayer('warp10');
+                teleporteur10.objects.forEach(teleporteur10=> {
+                const w10 = warp10G.create(teleporteur10.x, teleporteur10.y, "warp" );
+                w10.body.setImmovable(true);
+                w10.body.setAllowGravity(false);
+
+                });
+                warp11G= this.physics.add.group({
+
+                });
+
+                teleporteur11 = map.getObjectLayer('warp11');
+                teleporteur11.objects.forEach(teleporteur11=> {
+                const w11 = warp11G.create(teleporteur11.x, teleporteur11.y, "warp" );
+                w11.body.setImmovable(true);
+                w11.body.setAllowGravity(false);
+
+                });
+                warp12G= this.physics.add.group({
+
+                });
+
+                teleporteur12 = map.getObjectLayer('warp12');
+                teleporteur12.objects.forEach(teleporteur12=> {
+                const w12 = warp12G.create(teleporteur12.x, teleporteur12.y, "warp" );
+                w12.body.setImmovable(true);
+                w12.body.setAllowGravity(false);
+
+                });
+                warp13G= this.physics.add.group({
+
+                });
+
+                teleporteur13 = map.getObjectLayer('warp13');
+                teleporteur13.objects.forEach(teleporteur13=> {
+                const w13 = warp13G.create(teleporteur13.x, teleporteur13.y, "warp" );
+                w13.body.setImmovable(true);
+                w13.body.setAllowGravity(false);
+
+                });
                 
+                warp14G= this.physics.add.group({
+                });
+                teleporteur14 = map.getObjectLayer('warp14');
+                teleporteur14.objects.forEach(teleporteur9=> {
+                const w14 = warp14G.create(teleporteur14.x, teleporteur14.y, "warp" );
+                w14.body.setImmovable(true);
+                w14.body.setAllowGravity(false);
+
+                });
+
+                warp15G= this.physics.add.group({
+                });
+                teleporteur15 = map.getObjectLayer('warp15');
+                teleporteur15.objects.forEach(teleporteur15=> {
+                const w15 = warp15G.create(teleporteur15.x, teleporteur15.y, "warp" );
+                w15.body.setImmovable(true);
+                w15.body.setAllowGravity(false);
+
+                });
+                warp16G= this.physics.add.group({
+
+                });
+
+                teleporteur16 = map.getObjectLayer('warp16');
+                teleporteur16.objects.forEach(teleporteur16=> {
+                const w16 = warp16G.create(teleporteur16.x, teleporteur16.y, "warp" );
+                w16.body.setImmovable(true);
+                w16.body.setAllowGravity(false);
+
+                });
+                warp17G= this.physics.add.group({
+
+                });
+
+                teleporteur17 = map.getObjectLayer('warp17');
+                teleporteur17.objects.forEach(teleporteur17=> {
+                const w17 = warp17G.create(teleporteur17.x, teleporteur17.y, "warp" );
+                w17.body.setImmovable(true);
+                w17.body.setAllowGravity(false);
+
+                });
+                warp18G= this.physics.add.group({
+
+                });
+
+                teleporteur18 = map.getObjectLayer('warp18');
+                teleporteur18.objects.forEach(teleporteur18=> {
+                const w18 = warp18G.create(teleporteur18.x, teleporteur18.y, "warp" );
+                w18.body.setImmovable(true);
+                w18.body.setAllowGravity(false);
+
+                });
+                                
 
                 sol.setCollisionByProperty({collider: true});
 
                 // player and animation creation
-                player = this.physics.add.sprite(48,1500,'player').setScale(0.05);
+                player = this.physics.add.sprite(1450,1500,'player').setScale(0.05);
                 player.setCollideWorldBounds(true);
                 this.physics.add.collider(player,sol);
 
@@ -329,6 +481,21 @@
                 this.physics.add.overlap(player, warp2G, warped2, null, this);
                 this.physics.add.overlap(player, warp3G, warped3, null, this);
                 this.physics.add.overlap(player, warp4G, warped4, null, this);
+                this.physics.add.overlap(player, warp5G, warped5, null, this);
+                this.physics.add.overlap(player, warp6G, warped6, null, this);
+                this.physics.add.overlap(player, warp7G, warped7, null, this);
+                this.physics.add.overlap(player, warp8G, warped8, null, this);
+                this.physics.add.overlap(player, warp9G, warped9, null, this);
+                this.physics.add.overlap(player, warp10G, warped10, null, this);
+                this.physics.add.overlap(player, warp11G, warped11, null, this);
+                this.physics.add.overlap(player, warp12G, warped12, null, this);
+                this.physics.add.overlap(player, warp13G, warped13, null, this);
+                this.physics.add.overlap(player, warp14G, warped14, null, this);
+                this.physics.add.overlap(player, warp15G, warped15, null, this);
+                this.physics.add.overlap(player, warp16G, warped15, null, this);
+                this.physics.add.overlap(player, warp17G, warped15, null, this);
+                this.physics.add.overlap(player, warp18G, warped15, null, this);
+
                 
 
                 
@@ -438,6 +605,186 @@
                 }else{
                     player.body.position.x = 298;
                     player.body.position.y = 1500;
+                    console.log(player.body.position);
+                };
+            }
+            function warped4(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 800;
+                    player.body.position.y = 700;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 700;
+                    player.body.position.y = 250;
+                    console.log(player.body.position);
+                };
+            }
+            function warped5(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 127;
+                    player.body.position.y = 1420;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 700;
+                    player.body.position.y = 250;
+                    console.log(player.body.position);
+                };
+            }
+            function warped6(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 800;
+                    player.body.position.y = 700;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 127;
+                    player.body.position.y = 1420;
+                    console.log(player.body.position);
+                };
+            }
+            function warped7(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 1375;
+                    player.body.position.y = 570;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 1470;
+                    player.body.position.y = 1540;
+                    console.log(player.body.position);
+                };
+            }
+            function warped8(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 279;
+                    player.body.position.y = 730;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 1470;
+                    player.body.position.y = 1540;
+                    console.log(player.body.position);
+                };
+            }
+            function warped9(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 279;
+                    player.body.position.y = 730;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 1375;
+                    player.body.position.y = 570;
+                    console.log(player.body.position);
+                };
+            }
+            function warped10(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 1200;
+                    player.body.position.y = 75;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 650;
+                    player.body.position.y = 1326;
+                    console.log(player.body.position);
+                };
+            }
+            function warped11(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 1511;
+                    player.body.position.y = 943;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 650;
+                    player.body.position.y = 1326;
+                    console.log(player.body.position);
+                };
+            }
+            function warped12(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 1511;
+                    player.body.position.y = 943;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 1200;
+                    player.body.position.y = 75;
+                    console.log(player.body.position);
+                };
+            }
+            function warped13(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 1520;
+                    player.body.position.y = 264;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 1078;
+                    player.body.position.y = 698;
+                    console.log(player.body.position);
+                };
+            }
+            function warped14(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 320;
+                    player.body.position.y = 988;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 1078;
+                    player.body.position.y = 698;
+                    console.log(player.body.position);
+                };
+            }
+            function warped15(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 320;
+                    player.body.position.y = 988;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 1520;
+                    player.body.position.y = 264;
+                    console.log(player.body.position);
+                };
+            }
+            function warped16(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 900;
+                    player.body.position.y = 1328;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 385;
+                    player.body.position.y = 1380;
+                    console.log(player.body.position);
+                };
+            }
+            function warped17(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 230;
+                    player.body.position.y = 252;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 385;
+                    player.body.position.y = 1380;
+                    console.log(player.body.position);
+                };
+            }
+            function warped18(player){
+                getRandom()
+                if(result == 0){
+                    player.body.position.x = 230;
+                    player.body.position.y = 252;
+                    console.log(player.body.position);
+                }else{
+                    player.body.position.x = 900;
+                    player.body.position.y = 1328;
                     console.log(player.body.position);
                 };
             }
