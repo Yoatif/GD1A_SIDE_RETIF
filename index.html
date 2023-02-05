@@ -51,10 +51,10 @@
             let monster;
             let deathMonster;
             let spikes;
-            let clef1 = false;
-            let clef2 = false;
-            let clef3 = false;
-            let clef4 = false;
+            let cle1 = false;
+            let cle2 = false;
+            let cle3 = false;
+            let cle4 = false;
             let lock1 = false;
             let lock2 = false;
             let lock3 = false;
@@ -96,6 +96,12 @@
                 this.load.image('piquesPlafondTemple', 'assets/piques_mur_ceilling_temple.png');
                 this.load.image('piquesMurGTemple', 'assets/piques_mur_G_temple.png');
                 this.load.image('piquesMurDTemple', 'assets/piques_mur_D_temple.png');
+
+                //import key
+                this.load.image('clef_bleu', 'assets/clef_bleu.png');
+                this.load.image('clef_jaune', 'assets/clef_jaune.png');
+                this.load.image('clef_verte', 'assets/clef_verte.png');
+                this.load.image('clef_rouge', 'assets/clef_rouge.png');
 
             }
 
@@ -239,6 +245,8 @@
                 warp1G= this.physics.add.group({
 
                 });
+
+                //warp creation 
                 
                 teleporteur1 = map.getObjectLayer('warp1');
                 teleporteur1.objects.forEach(teleporteur1=> {
@@ -435,12 +443,55 @@
                 w18.body.setAllowGravity(false);
 
                 });
+
+                // here i create the keys
+                clef1 = this.physics.add.group({
+                    
+                });
+                key1 = map.getObjectLayer('clef1');
+                key1.objects.forEach(key1 => {
+                    const first_key = clef1.create(key1.x, key1.y, "clef_bleu").setScale(0.03);
+                    first_key.body.setImmovable(true);
+                    first_key.body.setAllowGravity(false);
+                });
+                
+                clef2 = this.physics.add.group({
+                    
+                });
+                key2 = map.getObjectLayer('clef2');
+                key2.objects.forEach(key2 => {
+                    const second_key = clef2.create(key2.x, key2.y, "clef_jaune").setScale(0.03);
+                    second_key.body.setImmovable(true);
+                    second_key.body.setAllowGravity(false);
+                });
+
+                clef3 = this.physics.add.group({
+                    
+                });
+                key3 = map.getObjectLayer('clef3');
+                key3.objects.forEach(key3 => {
+                    const third_key = clef3.create(key3.x, key3.y, "clef_verte").setScale(0.03);
+                    third_key.body.setImmovable(true);
+                    third_key.body.setAllowGravity(false);
+                });
+
+                clef4 = this.physics.add.group({
+                    
+                });
+                key4 = map.getObjectLayer('clef4');
+                key4.objects.forEach(key4 => {
+                    const fourth_key = clef4.create(key4.x, key4.y, "clef_rouge").setScale(0.03);
+                    fourth_key.body.setImmovable(true);
+                    fourth_key.body.setAllowGravity(false);
+                });
+
+                
                                 
 
                 sol.setCollisionByProperty({collider: true});
 
                 // player and animation creation
-                player = this.physics.add.sprite(1450,1500,'player').setScale(0.05);
+                player = this.physics.add.sprite(50,1500,'player').setScale(0.05);
                 player.setCollideWorldBounds(true);
                 this.physics.add.collider(player,sol);
 
@@ -495,6 +546,12 @@
                 this.physics.add.overlap(player, warp16G, warped15, null, this);
                 this.physics.add.overlap(player, warp17G, warped15, null, this);
                 this.physics.add.overlap(player, warp18G, warped15, null, this);
+
+                //creating overlap between player and keys
+                this.physics.add.overlap(player, clef1, setKey1, null, this);
+                this.physics.add.overlap(player, clef2, setKey2, null, this);
+                this.physics.add.overlap(player, clef3, setKey3, null, this);
+                this.physics.add.overlap(player, clef4, setKey4, null, this);
 
                 
 
@@ -696,7 +753,7 @@
                 getRandom()
                 if(result == 0){
                     player.body.position.x = 1511;
-                    player.body.position.y = 943;
+                    player.body.position.y = 934;
                     console.log(player.body.position);
                 }else{
                     player.body.position.x = 650;
@@ -708,7 +765,7 @@
                 getRandom()
                 if(result == 0){
                     player.body.position.x = 1511;
-                    player.body.position.y = 943;
+                    player.body.position.y = 934;
                     console.log(player.body.position);
                 }else{
                     player.body.position.x = 1200;
@@ -748,15 +805,15 @@
                     console.log(player.body.position);
                 }else{
                     player.body.position.x = 1520;
-                    player.body.position.y = 264;
+                    player.body.position.y = 274;
                     console.log(player.body.position);
                 };
             }
             function warped16(player){
                 getRandom()
                 if(result == 0){
-                    player.body.position.x = 900;
-                    player.body.position.y = 1328;
+                    player.body.position.x = 1520;
+                    player.body.position.y = 274;
                     console.log(player.body.position);
                 }else{
                     player.body.position.x = 385;
@@ -788,6 +845,24 @@
                     console.log(player.body.position);
                 };
             }
+
+            function setKey1(player){
+                cle1 = true;
+
+            }
+            function setKey2(player){
+                cle2 = true;
+
+            }
+            function setKey3(player){
+                cle3 = true;
+
+            }
+            function setKey4(player){
+                cle4 = true;
+
+            }
+
 
             function isSpiked(player){
                 player.disableBody(true,true);    
