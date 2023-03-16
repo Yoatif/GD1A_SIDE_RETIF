@@ -12,29 +12,29 @@
             var config = {
 
             //le type, permet de définir la gestion du rendu. AUTO laisse le navigateur choisir. 
-            type: Phaser.AUTO,
+                type: Phaser.AUTO,
 
-            //définie les dimmensions de la fenetre de jeu, 
-            //la map peut faire la taille que vous souhaitez (bon y'a une limite mais je ne sais plus a combien elle est),
-            width: 400,
-            height: 200,
+                //définie les dimmensions de la fenetre de jeu, 
+                //la map peut faire la taille que vous souhaitez (bon y'a une limite mais je ne sais plus a combien elle est),
+                width: 400,
+                height: 200,
 
 
-            physics: {
-                
-                default: 'arcade',
-                arcade: {
-                    //définie la gravité, son orientation et l'affichage du débug.
-                    gravity: { y: 300 },
-                    debug: true
-                }
-            },
-            input:{gamepad:true},
-            //définie l'ordre de lecture des scènes
-            scene: {
-                preload: preload,
-                create: create,
-                update: update
+                physics: {
+                    
+                    default: 'arcade',
+                    arcade: {
+                        //définie la gravité, son orientation et l'affichage du débug.
+                        gravity: { y: 300 },
+                        debug: true
+                    }
+                },
+                input:{gamepad:true},
+                //définie l'ordre de lecture des scènes
+                scene: {
+                    preload: preload,
+                    create: create,
+                    update: update
             }
             };
 
