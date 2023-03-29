@@ -493,7 +493,7 @@
                 // player and animation creation
                 player = this.physics.add.sprite(50,1500,'player').setScale(0.05);
                 player.setCollideWorldBounds(true);
-                this.physics.add.collider(this.player,sol);
+                this.physics.add.collider(player,sol);
 
                 this.anims.create({
                     key: 'left',
